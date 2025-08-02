@@ -1,0 +1,55 @@
+.feature-card {
+	background-color: #222;
+	padding: 1rem 1.5rem;
+	border-radius: 8px;
+	width: 100%;
+	margin: auto;
+	text-align: left;
+	color: white;
+}
+
+.feature-card h3 {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+	font-size: 1rem;
+	color: #bfbfbf;
+}
+
+@media screen and (min-width: 768px) {
+	.feature-card {
+		padding-inline: 1rem;
+	}
+
+	.feature-card h3 {
+		font-size: 1.125em;
+	}
+
+	.feature-card p {
+		font-size: 0.875em;
+		font-weight: 400;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.feature-cards {
+		margin-top: 3rem !important;
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	.feature-card {
+		padding: 2rem;
+	}
+
+	.feature-card h3 {
+		font-size: 1.75em;
+		margin-bottom: 1rem;
+	}
+
+	.feature-card p {
+		font-size: 1.25em;
+	}
+}
