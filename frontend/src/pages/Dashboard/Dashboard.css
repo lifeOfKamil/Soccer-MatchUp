@@ -1,0 +1,47 @@
+.dashboard-title {
+	font-size: 3rem;
+	position: relative;
+}
+
+.create-match-button {
+	&:hover {
+		border-color: transparent !important;
+		background-color: #f02a34;
+	}
+	&:focus {
+		outline: none !important;
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	.dashboard-title {
+		margin-inline: 12rem;
+		margin-top: 6rem;
+	}
+
+	.dashboard-container {
+		margin-inline: 12rem;
+	}
+}
+
+@media screen and (min-width: 2560px) {
+	.dashboard-title {
+		margin-inline: 16rem;
+		margin-top: 6rem;
+	}
+
+	.dashboard-container {
+		margin-inline: 16rem;
+	}
+}
+
+@media screen and (min-width: 3440px) {
+	.dashboard-title {
+		margin-inline: 40rem;
+		margin-top: 6rem;
+	}
+
+	.dashboard-container {
+		margin-inline: 40rem;
+	}
+}
