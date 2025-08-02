@@ -9,7 +9,7 @@ import java.util.List;
 import static jakarta.persistence.CascadeType.ALL;
 
 @Entity
-@Table(name = "Groups")
+@Table(name = "teams")
 public class Group {
 
     @Id

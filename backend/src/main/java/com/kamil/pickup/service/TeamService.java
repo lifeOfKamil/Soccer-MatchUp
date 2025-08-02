@@ -1,8 +1,8 @@
 package com.kamil.pickup.service;
 
-import com.kamil.pickup.model.Group;
+import com.kamil.pickup.model.Team;
 import com.kamil.pickup.model.User;
-import com.kamil.pickup.repository.GroupRepository;
+import com.kamil.pickup.repository.TeamRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,41 +11,41 @@ import java.util.Optional;
 
 @Service
 public class GroupService {
-    private final GroupRepository groupRepo;
+    private final TeamRepository groupRepo;
     private final MembershipService membershipService;
 
-    public GroupService(GroupRepository groupRepo, MembershipService membershipService) {
+    public GroupService(TeamRepository groupRepo, MembershipService membershipService) {
         this.groupRepo = groupRepo;
         this.membershipService = membershipService;
     }
 
-    public Group createGroup(String name, String description, User owner) {
+    public Team createGroup(String name, String description, User owner) {
         if (groupRepo.findByName(name).isPresent()) {
             throw new IllegalArgumentException("A group with that name already exists");
         }
-        Group g = new Group(name, description, owner);
+        Team g = new Team(name, description, owner);
         return groupRepo.save(g);
     }
 
-    public Group findById(Long id) {
+    public Team findById(Long id) {
         return groupRepo.findById(id).orElseThrow(() -> new NoSuchElementException("Group not found"));
     }
 
-    public Optional<Group> findByName(String name) {
+    public Optional<Team> findByName(String name) {
         return groupRepo.findByName(name);
     }
 
-    public Group updateName(Long groupId, String newName) {
+    public Team updateName(Long groupId, String newName) {
         if (groupRepo.findById(groupId).isEmpty()) {
             throw new IllegalArgumentException("Group does not exist");
         }
-        Group g = findById(groupId);
+        Team g = findById(groupId);
         g.setName(newName);
         return groupRepo.save(g);
     }
 
-    public Group updateDescription(Long groupId, String newDescription) {
-        Group g = findById(groupId);
+    public Team updateDescription(Long groupId, String newDescription) {
+        Team g = findById(groupId);
         g.setDescription(newDescription);
         return groupRepo.save(g);
     }
@@ -58,7 +58,7 @@ public class GroupService {
         groupRepo.deleteByName(name);
     }
 
-    public List<Group> listOwnedBy(User owner) {
+    public List<Team> listOwnedBy(User owner) {
         return groupRepo.findByOwner(owner);
     }
 
@@ -67,7 +67,7 @@ public class GroupService {
         return membershipService.listMembers(groupId);
     }
 
-    public List<Group> findAll() {
+    public List<Team> findAll() {
         return groupRepo.findAll();
     }
 }
